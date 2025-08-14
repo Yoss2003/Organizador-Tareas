@@ -1,0 +1,197 @@
+/* === CONTENEDOR PRINCIPAL === */
+.task-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.task-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* COLORES SEGÚN ESTADO */
+.task-card.completo   { background-color: #d0ffd8; }
+.task-card.pendiente  { background-color: #fff4d0; }
+.task-card.nuevo      { background-color: #d0e8ff; }
+
+/* === CABECERA === */
+.task-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+  padding-right: 90px;
+}
+
+.task-title {
+  flex: 1;
+  margin: 0;
+  line-height: 1.2;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* === GRUPO DE ACCIONES Y BANDERA === */
+.task-actions-group {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.task-card:hover .task-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* BOTONES */
+.menu-btn,
+.delete-btn,
+.complete-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+  line-height: 1;
+}
+.menu-btn:hover,
+.delete-btn:hover,
+.complete-btn:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* BANDERA DE PRIORIDAD */
+.priority-flag {
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #222;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08) inset;
+}
+
+/* MENÚ DE PRIORIDAD */
+.priority-menu {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5px;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.priority-menu button {
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+}
+.priority-menu button:hover {
+  background: #f6f6f6;
+}
+.priority-menu .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* === DESCRIPCIÓN, FECHAS Y META === */
+.task-desc {
+  margin: 6px 0;
+  font-size: 14px;
+}
+.task-dates {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.task-dates strong { font-weight: 600; }
+.task-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #555;
+  flex-wrap: wrap;
+}
+.status {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.status-completo   { background-color: #a5d6a7; }
+.status-pendiente  { background-color: #ffe082; }
+.status-nuevo      { background-color: #90caf9; }
+
+/* TEMPORIZADOR */
+.timer {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #e53935;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* === AJUSTES POR VISTA === */
+
+/* GRID */
+.task-card.grid .task-header {
+  padding-right: 90px;
+}
+.task-card.grid .task-actions-group {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* LISTA */
+.task-card.list {
+  position: relative;
+}
+.task-card.list .task-header {
+  align-items: flex-start;
+  min-height: 48px;
+  padding-right: 90px;
+}
+.task-card.list .task-actions-group {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
